@@ -6,9 +6,9 @@ const TRWP_PER_BRAKE = {
 
 /* ===== 例えの単位（1個あたりの重さ）===== */
 const UNIT = {
-  sesame: { name: "ごま(0.003g)", weight: 0.003, unit: "粒" },
-  rice:   { name: "米(0.02g)", weight: 0.02, unit: "粒" },
-  yen:    { name: "1円玉(1.0g)", weight: 1.0, unit: "枚" }
+  sesame: { name: "ごま", weight: 0.003, unit: "粒" },
+  rice:   { name: "米", weight: 0.02, unit: "粒" },
+  yen:    { name: "1円玉", weight: 1.0, unit: "枚" }
 };
 
 /* ===== 信号密度（個 / km）===== */
@@ -73,4 +73,5 @@ function calculate(){
   document.getElementById("resultUnitWater").innerHTML =
     `<b>${countWaterMin.toFixed(1)} ー ${countWaterMax.toFixed(1)} ${unit.unit}</b>（${unit.name}換算）`;
 }
+
 
