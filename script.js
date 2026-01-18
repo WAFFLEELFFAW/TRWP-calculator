@@ -65,13 +65,14 @@ function calculate(){
     `<b>${totalTRWP.toFixed(3)} g</b>（前輪＋後輪）`;
 
   document.getElementById("resultWater").innerHTML =
-    `<b>${waterMin.toFixed(3)} ー ${waterMax.toFixed(3)} g</b>`;
+    `<b>${waterMin.toFixed(3)} ～ ${waterMax.toFixed(3)} g</b>`;
 
   document.getElementById("resultUnitGen").innerHTML =
     `<b>${countGen.toFixed(1)} ${unit.unit}</b>（${unit.name}換算）`;
 
   document.getElementById("resultUnitWater").innerHTML =
-    `<b>${countWaterMin.toFixed(1)} ー ${countWaterMax.toFixed(1)} ${unit.unit}</b>（${unit.name}換算）`;
+    `<b>${countWaterMin.toFixed(1)} ～ ${countWaterMax.toFixed(1)} ${unit.unit}</b>（${unit.name}換算）`;
 }
+
 
 
