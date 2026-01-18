@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRWP Calculator</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="wrap">
+<h1>TRWP 排出量 計算機</h1>
+<p>自転車走行により発生する TRWP を、実験値に基づいて推定します。</p>
+
+<!-- 入力 -->
+<div class="card">
+<h2>入力</h2>
+
+<div class="grid">
+  <div>
+    <label>ブレーキ条件（実験値）</label>
+    <select id="brakeType">
+      <option value="hard">急ブレーキ</option>
+      <option value="soft">ゆっくりブレーキ</option>
+    </select>
+  </div>
+
+  <div>
+    <label>停止回数（分かる場合）</label>
+    <input id="stopCount" type="number" placeholder="例：12">
+  </div>
+
+  <div>
+    <label>走行距離（km・分からない場合）</label>
+    <input id="distance" type="number" step="0.1" placeholder="例：5.0">
+  </div>
+
+  <div>
+    <label>道路タイプ（推定用）</label>
+    <select id="roadType">
+      <option value="urban">都市部</option>
+      <option value="residential">住宅地</option>
+      <option value="suburban">郊外</option>
+    </select>
+  </div>
+
+  <div>
+    <label>重さの例え</label>
+    <select id="unitType">
+      <option value="sesame">ごま</option>
+      <option value="rice">米</option>
+      <option value="yen">1円玉</option>
+    </select>
+  </div>
+</div>
+
+<button style="margin-top:16px" onclick="calculate()">計算する</button>
+</div>
+
+<!-- 結果 -->
+<div class="card">
+<h2>計算結果</h2>
+
+<div class="flow">
+  <p class="small">① 停止回数</p>
+  <div class="result" id="resultStops">未計算</div>
+
+  <div class="resultCard">
+    <div>
+      <p class="small">② TRWP 発生量</p>
+      <div id="resultGen">未計算</div>
+    </div>
+    <div>
+      <p class="small">②の例え換算</p>
+      <div id="resultUnitGen">未計算</div>
+    </div>
+  </div>
+
+  <div class="resultCard">
+    <div>
+      <p class="small">③ 水域到達量（推定）</p>
+      <div id="resultWater">未計算</div>
+    </div>
+    <div>
+      <p class="small">③の例え換算</p>
+      <div id="resultUnitWater">未計算</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<footer class="footer">
+停止回数が不明な場合、走行距離・信号密度・赤信号率から推定する。  
+水域到達率はUnice et al. (2019), European TRWP Platform (2019)を参照する。堆積過程，減速時以外のTRWP排出は考慮しない。巡航速度は20km，タイヤ幅は32mm，人と自転車を合わせた重量は約70kgとしたときの実験結果を参照する。
+</footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
